@@ -1,12 +1,8 @@
-# TeachingLanding
+# React + Vite
 
-# 🌐 Página de Aterrizaje para Amedplus
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-¡Bienvenido al repositorio de la página de aterrizaje creada especialmente para Amedplus! Este proyecto consiste en el desarrollo de una landing page para Amedplus, una empresa dedicada a la distribución y venta de artículos e insumos médicos. La página web tiene como objetivo principal mostrar de manera gráfica y clara los productos y servicios que ofrece Amedplus, así como proporcionar métodos de contacto eficientes.
+Currently, two official plugins are available:
 
-## ✨ Características
-
-- **📱 Diseño Responsive:** Optimizada para dispositivos móviles y de escritorio.
-- **🖱️ Call to Action (CTA) Personalizado:** Diseñado para atraer la atención y fomentar la interacción.
-- **🧹 Código Limpio y Documentado:** Facilita la comprensión y modificación futura.
-- **🔍 Optimización SEO:** Implementación de buenas prácticas para mejorar la visibilidad en buscadores.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
