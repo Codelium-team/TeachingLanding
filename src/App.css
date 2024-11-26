@@ -1,14 +1,24 @@
 /* Custom styles */
 .hero-section {
-  background: linear-gradient(135deg, #ffffff 0%, #a5c8f1 100%);
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(165, 200, 241, 0.8)
+    ),
+    url("https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=1920&q=80");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 80vh;
   display: flex;
   align-items: center;
+  position: relative;
+  padding: 2rem 0;
 }
 
 .side-menu {
   position: fixed;
-  right: 20px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -27,14 +37,14 @@
   gap: 10px;
   padding: 10px;
   width: 100%;
-  transition: all 0.3s ease;
   color: #1f6bc1;
   border: 1px solid #a5c8f1;
   background-color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 .side-menu-item:hover {
-  transform: translateX(-5px);
+  transform: translateX(5px);
   background-color: #a5c8f1;
   color: #ffffff;
   border-color: #609ce6;
@@ -42,6 +52,7 @@
 
 .menu-label {
   margin-left: 8px;
+  white-space: nowrap;
 }
 
 .social-links button {
@@ -102,14 +113,16 @@
 @media (max-width: 768px) {
   .hero-section {
     text-align: center;
-    padding: 2rem 0;
+    min-height: 100vh;
+    background-attachment: scroll;
+    padding: 4rem 1rem;
   }
 
   .side-menu {
     bottom: 0;
     top: auto;
-    right: 0;
     left: 0;
+    right: 0;
     transform: none;
     flex-direction: row;
     justify-content: space-around;
@@ -121,14 +134,25 @@
     flex-direction: column;
     gap: 5px;
     font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .side-menu-item:hover {
+    transform: translateY(-5px);
   }
 
   .menu-label {
     margin-left: 0;
+    font-size: 0.7rem;
   }
 
   .social-links {
     justify-content: center;
+  }
+
+  .hero-content,
+  .contact-form-wrapper {
+    margin: 1rem;
   }
 }
 
@@ -217,4 +241,27 @@
 
 .bg-accent {
   background-color: #f0ce4c !important;
+}
+
+/* Hero content styles */
+.hero-content {
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(31, 107, 193, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form-wrapper {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(31, 107, 193, 0.1);
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
