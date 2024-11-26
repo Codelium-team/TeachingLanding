@@ -20,7 +20,6 @@ function App() {
       <SideMenu onItemClick={handleModalShow} />
       <Hero />
       <Footer />
-
       <About show={activeModal === 'about'} onHide={handleModalClose} />
       <Testimonials show={activeModal === 'testimonials'} onHide={handleModalClose} />
       <Methodology show={activeModal === 'methodology'} onHide={handleModalClose} />
