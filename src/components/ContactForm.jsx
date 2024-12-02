@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { Modal, Form, Button, Alert } from "react-bootstrap";
+import React from "react";
+import PropTypes from "prop-types";
+import { Modal, Form, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const ContactForm = ({ show, onHide }) => {
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
 
     try {
       const formData = new FormData(e.target);
       const response = await fetch(
-        "https://formsubmit.co/notification@codelium.cl",
+        "https://formsubmit.co/ajax/0ddecb23dfb22bf423c51fc3ec14048c",
         {
           method: "POST",
           body: formData,
@@ -20,17 +18,29 @@ const ContactForm = ({ show, onHide }) => {
       );
 
       if (response.ok) {
-        setSubmitted(true);
+        Swal.fire({
+          title: "¡Mensaje enviado!",
+          text: "Te responderemos a la brevedad.",
+          icon: "success",
+          confirmButtonColor: "#1f6bc1",
+          background: "#ffffff",
+          iconColor: "#25d366",
+        });
         e.target.reset();
-        setTimeout(() => {
-          onHide();
-          setSubmitted(false);
-        }, 3000);
+        onHide();
       } else {
-        throw new Error("Something went wrong");
+        throw new Error("Error en el envío");
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      setError("There was an error sending your message. Please try again.");
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.",
+        icon: "error",
+        confirmButtonColor: "#1f6bc1",
+        background: "#ffffff",
+        iconColor: "#dc3545",
+      });
     }
   };
 
@@ -40,21 +50,15 @@ const ContactForm = ({ show, onHide }) => {
         <Modal.Title>Agenda tu Clase</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {submitted && (
-          <Alert variant="success">
-            Gracias por tu mensaje, te responderé en breve.
-          </Alert>
-        )}
-        {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <input
             type="hidden"
             name="_subject"
-            value="New contact from landing page"
+            value="Nueva clase agendada"
           />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value={window.location.href} />
+          <input type="hidden" name="_next" value="javascript:void(0);" />
 
           <Form.Group className="mb-3">
             <Form.Control
@@ -76,24 +80,23 @@ const ContactForm = ({ show, onHide }) => {
             <Form.Control
               type="tel"
               name="phone"
-              placeholder="+56 9 XXXX XXXX"
-              required
+              placeholder="+56 9 XXXX XXXX (opcional)"
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Select name="class_type">
+            <Form.Select name="class_type" required>
               <option value="">Selecciona tu plan</option>
-              <option value="single">Clase individual</option>
-              <option value="monthly">Plan mensual</option>
-              <option value="annual">Plan anual</option>
+              <option value="individual">Clase individual</option>
+              <option value="mensual">Plan mensual</option>
+              <option value="anual">Plan anual</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Control
-              type="text"
-              name="schedule"
-              placeholder="Horario Preferido"
-            />
+            <Form.Select name="schedule" required>
+              <option value="">Horario Preferido</option>
+              <option value="mañana">AM</option>
+              <option value="tarde">PM</option>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Control
@@ -111,5 +114,11 @@ const ContactForm = ({ show, onHide }) => {
     </Modal>
   );
 };
+
+ContactForm.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onHide: PropTypes.func.isRequired,
+};
+
 
 export default ContactForm;
