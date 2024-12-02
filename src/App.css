@@ -147,10 +147,14 @@
 @media (max-width: 768px) {
   .hero-section {
     text-align: center;
-    height: 60vh !important;
+    height: 100vh !important;
     background-attachment: scroll;
     background-position: 70% center;
     padding: 4rem 1rem;
+  }
+
+  .btn-success {
+    margin-bottom: 0.5rem;
   }
 
   .side-menu {
@@ -184,6 +188,7 @@
 
   .social-links {
     justify-content: center;
+    display: flow-root;
   }
 
   .hero-content {
@@ -198,7 +203,7 @@
 
   footer {
     position: static !important;
-    height: 35vh !important;
+    height: 40vh !important;
   }
 }
 
