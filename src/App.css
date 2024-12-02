@@ -123,6 +123,27 @@
   border-color: #609ce6;
 }
 
+
+.policy-content {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.policy-content h5 {
+  color: #1f6bc1;
+  margin-top: 1.5rem;
+}
+
+.policy-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-section {
