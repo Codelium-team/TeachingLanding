@@ -5,7 +5,7 @@
       rgba(165, 200, 241, 0.6)
     ),
     url("https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=1920&q=80");
-  background-position: center;
+  background-position: right center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -123,7 +123,6 @@
   border-color: #609ce6;
 }
 
-
 .policy-content {
   max-height: 70vh;
   overflow-y: auto;
@@ -150,11 +149,13 @@
     text-align: center;
     height: 80vh;
     background-attachment: scroll;
+    background-position: 70% center;
     padding: 4rem 1rem;
   }
 
   .side-menu {
-    bottom: 0;
+    position:static;
+    bottom: 20vh;
     top: auto;
     left: 0;
     right: 0;
@@ -187,6 +188,16 @@
 
   .hero-content {
     margin: 1rem;
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .policy-content {
+    max-height: 60vh;
+  }
+
+  footer {
+    height: 40vh !important;
   }
 }
 
@@ -279,7 +290,6 @@
 
 /* Hero content styles */
 .hero-content {
-  background-color: rgba(255, 255, 255, 0.95);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(31, 107, 193, 0.1);
@@ -292,6 +302,8 @@ footer {
   height: 20vh;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 #root {
