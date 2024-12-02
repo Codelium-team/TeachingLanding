@@ -1,9 +1,9 @@
-import React from 'react';
-import { Modal } from 'react-bootstrap';
-import Slider from 'react-slick';
-import { testimonials } from '../data/testimonials';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import { Modal } from "react-bootstrap";
+import Slider from "react-slick";
+import { testimonials } from "../data/testimonials";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Testimonials = ({ show, onHide }) => {
   const settings = {
@@ -14,13 +14,13 @@ const Testimonials = ({ show, onHide }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    pauseOnHover: true
+    pauseOnHover: true,
   };
 
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Testimonios</Modal.Title>
+        <Modal.Title>Testimonios de estudiantes</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Slider {...settings}>
@@ -31,13 +31,14 @@ const Testimonials = ({ show, onHide }) => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="rounded-circle me-3"
-                    width="60"
+                    className="testimonial-image me-3"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div>
                     <h5 className="mb-0">{testimonial.name}</h5>
                     <div className="rating">
-                      {'★'.repeat(testimonial.rating)}
+                      {"★".repeat(testimonial.rating)}
                     </div>
                   </div>
                 </div>
