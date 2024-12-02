@@ -9,6 +9,7 @@ import Methodology from "./components/Methodology";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
@@ -20,7 +21,10 @@ function App() {
     <div className="App">
       <SideMenu onItemClick={handleModalShow} />
       <Hero />
-      <Footer onPrivacyClick={() => handleModalShow("privacy")} />
+      <Footer
+        onPrivacyClick={() => handleModalShow("privacy")}
+        onTermsClick={() => handleModalShow("terms")}
+      />
       <About show={activeModal === "about"} onHide={handleModalClose} />
       <Testimonials
         show={activeModal === "testimonials"}
@@ -33,6 +37,10 @@ function App() {
       <ContactForm show={activeModal === "contact"} onHide={handleModalClose} />
       <PrivacyPolicy
         show={activeModal === "privacy"}
+        onHide={handleModalClose}
+      />
+      <TermsOfService
+        show={activeModal === "terms"}
         onHide={handleModalClose}
       />
     </div>

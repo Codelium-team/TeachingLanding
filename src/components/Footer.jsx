@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { FaWhatsapp, FaEnvelope, FaLinkedin, FaYoutube } from "react-icons/fa";
 
-const Footer = ({ onPrivacyClick }) => {
+const Footer = ({ onPrivacyClick, onTermsClick }) => {
   return (
     <footer className="bg-dark text-light py-4">
       <Container>
@@ -54,12 +55,13 @@ const Footer = ({ onPrivacyClick }) => {
               </Button>
             </p>
             <p className="mb-0">
-              <a
-                href="/terms-of-service"
-                className="text-light text-decoration-none"
+              <Button
+                variant="link"
+                className="text-light text-decoration-none p-0"
+                onClick={onTermsClick}
               >
                 Términos de Servicio
-              </a>
+              </Button>
             </p>
           </Col>
         </Row>
@@ -74,6 +76,11 @@ const Footer = ({ onPrivacyClick }) => {
       </Container>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  onPrivacyClick: PropTypes.func.isRequired,
+  onTermsClick: PropTypes.func.isRequired,
 };
 
 export default Footer;
