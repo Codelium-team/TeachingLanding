@@ -1,19 +1,20 @@
-import React from 'react';
-import { Modal, Row, Col, Card } from 'react-bootstrap';
+import React from "react";
+import PropTypes from "prop-types";
+import { Modal, Row, Col, Card } from "react-bootstrap";
 
 const About = ({ show, onHide }) => {
   const benefits = [
-    'Método de aprendizaje personalizado',
-    'Horarios flexibles',
-    'Sesiones interactivas online',
-    'Seguimiento del progreso',
-    'Materiales de práctica incluidos'
+    "Método de aprendizaje personalizado",
+    "Horarios flexibles",
+    "Sesiones interactivas online",
+    "Seguimiento del progreso",
+    "Materiales de práctica incluidos",
   ];
 
   const rates = [
-    { type: 'Clase Individual', price: '$20.000', period: 'por clase' },
-    { type: 'Paquete Mensual', price: '$70.000', period: 'por mes' },
-    { type: 'Paquete Anual', price: '$800.000', period: 'por año' }
+    { type: "Clase Individual", price: "$20.000", period: "por clase" },
+    { type: "Paquete Mensual", price: "$70.000", period: "por mes" },
+    { type: "Paquete Anual", price: "$800.000", period: "por año" },
   ];
 
   return (
@@ -27,8 +28,11 @@ const About = ({ show, onHide }) => {
             <div className="biography">
               <h3 className="mb-3">Biografía Profesional</h3>
               <p>
-                Con más de 8 años de experiencia en la enseñanza de matemáticas, Natalia Espinosa ha ayudado a decenas de estudiantes a alcanzar sus metas académicas. 
-                Especializada en matemáticas de enseñanza media y preparación para la prueba PAES, Natalia combina métodos tradicionales con técnicas modernas de aprendizaje online, 
+                Con más de 8 años de experiencia en la enseñanza de matemáticas,
+                Natalia Espinosa ha ayudado a decenas de estudiantes a alcanzar
+                sus metas académicas. Especializada en matemáticas de enseñanza
+                media y preparación para la prueba PAES, Natalia combina métodos
+                tradicionales con técnicas modernas de aprendizaje online,
                 adaptándose a las necesidades de cada estudiante.
               </p>
             </div>
@@ -36,7 +40,9 @@ const About = ({ show, onHide }) => {
               <h3 className="mb-3">Beneficios de Mis Clases</h3>
               <ul className="list-unstyled">
                 {benefits.map((benefit, index) => (
-                  <li key={index} className="mb-2">✓ {benefit}</li>
+                  <li key={index} className="mb-2">
+                    ✓ {benefit}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -65,4 +71,8 @@ const About = ({ show, onHide }) => {
   );
 };
 
+About.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onHide: PropTypes.func.isRequired,
+};
 export default About;
